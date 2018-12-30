@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.1/Tone.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/scribbletune/1.9.2/scribbletune.js"></script>
+        <script src="newMain.js"></script>
+    </head>
+
+    <body>
+        <script lang="javascript">
+            function hello() {
+                console.log(scribble.scale('c4 major'));
+            };
+        </script>
+        <button>Click to Play</button>
+        <script lang="javascript">
+            // Existing code unchanged.
+            window.onload = function () {
+                var context = new AudioContext();
+            // One-liner to resume playback when user interacted with the page.
+            document.querySelector('button').addEventListener('click', function () {
+                context.resume().then(() => {
+                    hello();
+                    console.log('Playback resumed successfully');
+                });
+            });
+        }
+        </script>
+
+    </body>
+
+    </html>
